@@ -44,14 +44,19 @@ function HeroSection() {
     loading: false,
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!form.email) return;
     setForm((f) => ({ ...f, loading: true }));
-    setTimeout(() => {
-      console.log("[Hero] 이메일 신청:", form.email);
-      setForm((f) => ({ ...f, submitted: true, loading: false }));
-    }, 800);
+    try {
+      await fetch(process.env.NEXT_PUBLIC_SHEET_URL!, {
+        method: "POST",
+        body: JSON.stringify({ type: "히어로 폼", email: form.email }),
+      });
+    } catch (err) {
+      console.error("[Hero] 시트 저장 실패:", err);
+    }
+    setForm((f) => ({ ...f, submitted: true, loading: false }));
   };
 
   return (
@@ -276,14 +281,19 @@ function BottomCTASection() {
     loading: false,
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email) return;
     setForm((f) => ({ ...f, loading: true }));
-    setTimeout(() => {
-      console.log("[Bottom CTA] 사전 알림 신청:", { name: form.name, email: form.email });
-      setForm((f) => ({ ...f, submitted: true, loading: false }));
-    }, 800);
+    try {
+      await fetch(process.env.NEXT_PUBLIC_SHEET_URL!, {
+        method: "POST",
+        body: JSON.stringify({ type: "사전알림 신청", name: form.name, email: form.email }),
+      });
+    } catch (err) {
+      console.error("[Bottom CTA] 시트 저장 실패:", err);
+    }
+    setForm((f) => ({ ...f, submitted: true, loading: false }));
   };
 
   return (
