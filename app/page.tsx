@@ -23,7 +23,7 @@ function Header() {
     <header className="fixed top-0 z-50 w-full bg-[rgba(250,250,247,0.85)] backdrop-blur-md">
       <div className="mx-auto flex max-w-[1024px] items-center justify-between px-5 py-3">
         {/* Figma: Joop 워드마크 이미지 h-[20px] w-[52.112px] */}
-        <img src="/logo.png" alt="Joop" className="h-5 w-[52px] object-contain" />
+        <img src="/logo.svg" alt="Joop" className="h-5 w-[52px] object-contain" />
         <a
           href="#notify"
           className="flex w-[119px] items-center justify-center rounded-[12px] bg-[#ff5a00] px-5 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-[#e05000]"
@@ -162,19 +162,19 @@ function ProblemSection() {
 function SolutionSection() {
   const cards = [
     {
-      icon: "/icon-store.png",
+      icon: "/icon-store.svg",
       title: "가벼운 가격으로 줍다",
       description:
         "기존 예약 플랫폼들이 가져가던 과도한 수수료를 걷어냈습니다. 플랫폼이 가벼워진 만큼, 게스트는 더 정직하고 낮은 가격으로 숙소를 예약할 수 있습니다.",
     },
     {
-      icon: "/icon-check.png",
+      icon: "/icon-check.svg",
       title: "숨어있는 퀄리티를 줍다",
       description:
         "무수히 많은 리스트 속에서 피곤하게 비교할 필요 없습니다. 엄선된 기준을 통과한 퀄리티 높은 숙소의 빈 방만을 선별하여 제안합니다.",
     },
     {
-      icon: "/icon-bolt.png",
+      icon: "/icon-bolt.svg",
       title: "즉흥적인 설렘을 줍다",
       description:
         "완벽한 여행 계획이 없어도 괜찮습니다. 훌쩍 떠나고 싶은 날, 매력적인 가격으로 오픈된 숙소를 우연히 발견하고 줍는 기쁨을 누려보세요.",
