@@ -150,12 +150,11 @@
 <body>
 
   <!-- ── HEADER ──────────────────────────────────────────────────────────── -->
-  <header style="position:fixed;top:0;z-index:50;width:100%;border-bottom:1px solid var(--border-default);background:rgba(250,250,247,0.85);backdrop-filter:blur(12px);">
-    <div style="max-width:1024px;margin:0 auto;display:flex;height:56px;align-items:center;justify-content:space-between;padding:0 20px;">
-      <span style="font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--fg-strong);">
-        줍<span style="color:var(--orange-600);">.</span>
-      </span>
-      <a href="#notify" class="btn-primary" style="padding:8px 20px;font-size:14px;border-radius:9999px;text-decoration:none;">
+  <header style="position:fixed;top:0;z-index:50;width:100%;background:rgba(250,250,247,0.85);backdrop-filter:blur(12px);">
+    <div style="max-width:1024px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;">
+      <!-- Figma: Joop 워드마크 이미지 -->
+      <img src="public/logo.png" alt="Joop" style="height:20px;width:52px;object-fit:contain;" />
+      <a href="#notify" style="display:flex;align-items:center;justify-content:center;width:119px;padding:12px 20px;background:#ff5a00;color:#fff;font-size:14px;font-weight:600;border-radius:12px;text-decoration:none;transition:background 0.2s;">
         사전 알림 신청
       </a>
     </div>
@@ -164,197 +163,181 @@
   <main>
 
     <!-- ── HERO ────────────────────────────────────────────────────────────── -->
-    <section style="position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,#FAFAF7 0%,#FFEEE5 55%,#FFDECC 100%);padding:80px 20px 60px;">
-      <div aria-hidden style="position:absolute;top:-128px;left:-128px;width:384px;height:384px;border-radius:50%;background:rgba(255,172,128,0.3);filter:blur(64px);pointer-events:none;"></div>
-      <div aria-hidden style="position:absolute;bottom:-128px;right:-128px;width:384px;height:384px;border-radius:50%;background:rgba(255,139,77,0.15);filter:blur(64px);pointer-events:none;"></div>
-
-      <div style="position:relative;z-index:1;max-width:672px;margin:0 auto;text-align:center;width:100%;">
-        <div class="anim-fade-in" style="margin-bottom:32px;">
-          <span class="label">🏨 GUEST EARLY ACCESS</span>
+    <!-- ── HERO ─ Figma: plain #fafaf7 bg, no gradient, gap-[52px] ── -->
+    <section style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#fafaf7;padding:120px 20px;">
+      <div style="max-width:620px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:52px;text-align:center;width:100%;">
+        <div class="anim-fade-in">
+          <span style="display:inline-block;border-radius:9999px;background:#ffeee5;padding:12px 32px;font-size:13px;font-weight:600;color:#ff5a00;">GUEST EARLY ACCESS</span>
         </div>
 
-        <h1 class="anim-fade-up delay-150" style="font-size:clamp(36px,7vw,60px);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--fg-strong);margin-bottom:24px;">
-          비어있는 좋은 숙소,<br />
-          <span class="gradient-text">가볍게 줍다.</span>
+        <h1 class="anim-fade-up delay-150" style="display:flex;flex-direction:column;align-items:center;font-size:32px;font-weight:700;line-height:1.5;color:#222;margin:0;">
+          <span>비어있는 좋은 숙소,</span>
+          <span>가볍게 줍다.</span>
         </h1>
 
-        <p class="anim-fade-up delay-250" style="font-size:clamp(15px,2.5vw,18px);line-height:1.75;color:var(--fg-muted);margin-bottom:48px;">
-          갑작스러운 취소, 평일의 빈 방.<br />
-          퀄리티 높은 숙소를 수수료 거품 없이 가장 합리적인 가격으로 만나보세요.
+        <p class="anim-fade-up delay-250" style="display:flex;flex-direction:column;align-items:center;font-size:16px;line-height:1.5;color:#666;margin:0;">
+          <span>갑작스러운 취소, 평일의 빈 방.</span>
+          <span>퀄리티 높은 숙소를 수수료 거품 없이 가장 합리적인 가격으로 만나보세요.</span>
         </p>
 
         <!-- Form -->
-        <div class="anim-fade-up delay-350" id="hero-form-wrap">
-          <form id="hero-form" onsubmit="submitHeroForm(event)" style="display:flex;flex-direction:column;gap:12px;">
-            <div style="display:flex;flex-wrap:wrap;gap:12px;">
-              <input id="hero-email" type="email" required placeholder="이메일 주소를 입력해 주세요" class="input" style="flex:1;min-width:220px;" />
-              <button type="submit" id="hero-btn" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">
+        <div class="anim-fade-up delay-350" id="hero-form-wrap" style="width:100%;">
+          <form id="hero-form" onsubmit="submitHeroForm(event)" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+            <div style="display:flex;gap:12px;width:100%;">
+              <input id="hero-email" type="email" required placeholder="이메일 주소를 입력해 주세요"
+                style="flex:1;min-width:0;height:44px;border:1px solid #eee;border-radius:12px;padding:0 20px;font-size:14px;color:#333;background:#fff;outline:none;font-family:inherit;" />
+              <button type="submit" id="hero-btn"
+                style="flex-shrink:0;width:160px;height:44px;border-radius:12px;background:#ff5a00;color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;">
                 첫 줍기 혜택 알림 받기
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </button>
             </div>
-            <p style="font-size:12px;color:var(--fg-placeholder);margin-top:4px;">스팸 메일은 보내지 않습니다. 언제든지 수신 거부 가능합니다.</p>
+            <p style="font-size:14px;color:#aaa;">스팸 메일은 보내지 않습니다. 언제든지 수신 거부 가능합니다.</p>
           </form>
 
           <div id="hero-success" style="display:none;flex-direction:column;align-items:center;gap:12px;border-radius:16px;background:rgba(255,255,255,0.9);padding:32px;box-shadow:0 4px 24px rgba(34,34,34,0.08);">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FF5A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <p style="font-size:18px;font-weight:700;color:var(--fg-strong);">신청이 완료되었습니다!</p>
-            <p style="font-size:14px;color:var(--fg-muted);">정식 오픈 소식과 특별 혜택을 가장 먼저 알려드릴게요.</p>
+            <p style="font-size:18px;font-weight:700;color:#222;">신청이 완료되었습니다!</p>
+            <p style="font-size:14px;color:#666;">정식 오픈 소식과 특별 혜택을 가장 먼저 알려드릴게요.</p>
           </div>
         </div>
-
-        <p class="anim-fade-up delay-450" style="margin-top:40px;font-size:12px;color:var(--fg-placeholder);">
-          이미 <span style="font-weight:600;color:var(--fg-default);">1,200명 이상</span>이 사전 신청을 완료했습니다.
-        </p>
       </div>
+    </section>
 
-      <div class="scroll-indicator">
-        <div style="width:24px;height:40px;border-radius:9999px;border:2px solid var(--orange-300);padding:4px;">
-          <div style="width:4px;height:8px;border-radius:9999px;background:var(--orange-400);margin:0 auto;"></div>
+    <!-- ── PROBLEM ── Figma: #222 bg, #ffdecc badge, #333 card ── -->
+    <section style="background:#222;padding:120px 20px;">
+      <div style="max-width:620px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:40px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:24px;">
+          <span style="display:inline-block;border-radius:9999px;background:#ffdecc;padding:8px 40px;font-size:12px;font-weight:600;color:#ff5a00;">PROBLEM</span>
+          <h2 style="display:flex;align-items:flex-start;gap:4px;font-size:32px;font-weight:700;line-height:1.5;text-align:center;margin:0;">
+            <span style="color:#fff;">좋은 숙소는 왜</span>
+            <span style="color:#ff8b4d;">항상 비싸야만</span>
+            <span style="color:#fff;">할까요?</span>
+          </h2>
+        </div>
+        <div style="border-radius:16px;background:#333;padding:40px;display:flex;flex-direction:column;gap:12px;font-size:16px;width:100%;">
+          <div>
+            <p style="font-weight:500;line-height:1.5;color:#eee;">마음에 드는 숙소는 너무 비싸고, 저렴한 곳은 아쉽습니다.<br />하지만 아무리 인기 있는 숙소라도</p>
+            <div style="display:flex;align-items:flex-start;gap:4px;line-height:1.5;">
+              <span style="font-weight:700;color:#fff;">피치 못할 예약 취소나 비수기에는 빈 방(공실)</span>
+              <span style="font-weight:500;color:#eee;">이 생기기 마련입니다.</span>
+            </div>
+          </div>
+          <p style="font-weight:500;line-height:1.5;color:#eee;">이 아까운 빈 공간들을 게스트가 부담 없이 누릴 방법은 없을까요?</p>
         </div>
       </div>
     </section>
 
-    <!-- ── PROBLEM ──────────────────────────────────────────────────────────── -->
-    <section style="background:#222222;padding:96px 20px;">
-      <div style="max-width:768px;margin:0 auto;text-align:center;">
-        <span class="label label-light">PROBLEM</span>
-        <h2 style="margin-top:24px;font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.2;letter-spacing:-0.02em;color:#fff;">
-          좋은 숙소는 왜 <span style="color:var(--orange-400);">항상 비싸야만</span> 할까요?
-        </h2>
-        <div style="margin-top:40px;border-radius:16px;border:1px solid #444;background:rgba(51,51,51,0.6);padding:40px;text-align:left;">
-          <p style="font-size:clamp(15px,2vw,18px);line-height:2;color:#CCC;">
-            마음에 드는 숙소는 너무 비싸고, 저렴한 곳은 아쉽습니다. 하지만 아무리 인기 있는 숙소라도
-            <span style="font-weight:700;color:#fff;">피치 못할 예약 취소나 비수기에는 빈 방(공실)</span>이 생기기 마련입니다.
-          </p>
-          <p style="margin-top:20px;font-size:clamp(15px,2vw,18px);line-height:2;color:#888;">
-            이 아까운 빈 공간들을 게스트가 부담 없이 누릴 방법은 없을까요?
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── SOLUTION ─────────────────────────────────────────────────────────── -->
-    <section style="background:var(--bg-canvas);padding:96px 20px;">
-      <div style="max-width:1024px;margin:0 auto;">
-        <div style="text-align:center;margin-bottom:64px;">
-          <span class="label">SOLUTION</span>
-          <h2 style="margin-top:24px;font-size:clamp(26px,4.5vw,40px);font-weight:800;line-height:1.25;letter-spacing:-0.02em;color:var(--fg-strong);">
-            호스트의 아까운 빈 방이,<br />
-            <span style="color:var(--orange-600);">게스트에겐 기회가 됩니다.</span>
+    <!-- ── SOLUTION ── Figma: image icons, h-[260px] cards, gap-[64px] ── -->
+    <section style="background:#fafaf7;padding:120px 20px;">
+      <div style="max-width:620px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:64px;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+          <span style="display:inline-block;border-radius:9999px;background:#ffdecc;padding:8px 40px;font-size:12px;font-weight:600;color:#ff5a00;">SOLUTION</span>
+          <h2 style="display:flex;flex-direction:column;align-items:center;font-size:32px;font-weight:700;line-height:1.5;margin:0;">
+            <span style="color:#222;">호스트의 아까운 빈 방이,</span>
+            <span style="color:#ff5a00;">게스트에겐 기회가 됩니다.</span>
           </h2>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
-
-          <div class="solution-card">
-            <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-            </div>
-            <h3 style="font-size:18px;font-weight:700;color:var(--fg-strong);margin-bottom:12px;">가벼운 가격으로 줍다</h3>
-            <p style="font-size:14px;line-height:1.8;color:var(--fg-muted);">기존 예약 플랫폼들이 가져가던 과도한 수수료를 걷어냈습니다. 플랫폼이 가벼워진 만큼, 게스트는 더 정직하고 낮은 가격으로 숙소를 예약할 수 있습니다.</p>
+        <div style="display:flex;flex-direction:column;gap:16px;width:100%;">
+          <div style="display:flex;flex-direction:column;gap:26px;height:260px;border-radius:16px;background:#fff;padding:40px;box-shadow:0 1px 3px rgba(34,34,34,0.06);">
+            <img src="public/icon-store.png" alt="" style="width:48px;height:48px;object-fit:contain;" />
+            <p style="font-size:18px;font-weight:700;color:#222;margin:0;">가벼운 가격으로 줍다</p>
+            <p style="font-size:16px;font-weight:500;line-height:1.5;color:#666;margin:0;">기존 예약 플랫폼들이 가져가던 과도한 수수료를 걷어냈습니다. 플랫폼이 가벼워진 만큼, 게스트는 더 정직하고 낮은 가격으로 숙소를 예약할 수 있습니다.</p>
           </div>
 
-          <div class="solution-card">
-            <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <h3 style="font-size:18px;font-weight:700;color:var(--fg-strong);margin-bottom:12px;">숨어있는 퀄리티를 줍다</h3>
-            <p style="font-size:14px;line-height:1.8;color:var(--fg-muted);">무수히 많은 리스트 속에서 피곤하게 비교할 필요 없습니다. 엄선된 기준을 통과한 퀄리티 높은 숙소의 빈 방만을 선별하여 제안합니다.</p>
+          <div style="display:flex;flex-direction:column;gap:26px;height:260px;border-radius:16px;background:#fff;padding:40px;box-shadow:0 1px 3px rgba(34,34,34,0.06);">
+            <img src="public/icon-check.png" alt="" style="width:48px;height:48px;object-fit:contain;" />
+            <p style="font-size:18px;font-weight:700;color:#222;margin:0;">숨어있는 퀄리티를 줍다</p>
+            <p style="font-size:16px;font-weight:500;line-height:1.5;color:#666;margin:0;">무수히 많은 리스트 속에서 피곤하게 비교할 필요 없습니다. 엄선된 기준을 통과한 퀄리티 높은 숙소의 빈 방만을 선별하여 제안합니다.</p>
           </div>
 
-          <div class="solution-card">
-            <div class="card-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            </div>
-            <h3 style="font-size:18px;font-weight:700;color:var(--fg-strong);margin-bottom:12px;">즉흥적인 설렘을 줍다</h3>
-            <p style="font-size:14px;line-height:1.8;color:var(--fg-muted);">완벽한 여행 계획이 없어도 괜찮습니다. 훌쩍 떠나고 싶은 날, 매력적인 가격으로 오픈된 숙소를 우연히 발견하고 줍는 기쁨을 누려보세요.</p>
+          <div style="display:flex;flex-direction:column;gap:26px;height:260px;border-radius:16px;background:#fff;padding:40px;box-shadow:0 1px 3px rgba(34,34,34,0.06);">
+            <img src="public/icon-bolt.png" alt="" style="width:48px;height:48px;object-fit:contain;" />
+            <p style="font-size:18px;font-weight:700;color:#222;margin:0;">즉흥적인 설렘을 줍다</p>
+            <p style="font-size:16px;font-weight:500;line-height:1.5;color:#666;margin:0;">완벽한 여행 계획이 없어도 괜찮습니다. 훌쩍 떠나고 싶은 날, 매력적인 가격으로 오픈된 숙소를 우연히 발견하고 줍는 기쁨을 누려보세요.</p>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ── VISION ───────────────────────────────────────────────────────────── -->
-    <section style="position:relative;overflow:hidden;background:linear-gradient(135deg,#FF5A00 0%,#C24B0A 50%,#993600 100%);padding:112px 20px;">
-      <div aria-hidden class="dot-pattern" style="position:absolute;inset:0;pointer-events:none;"></div>
-      <div aria-hidden style="position:absolute;top:-80px;right:-80px;width:256px;height:256px;border-radius:50%;background:rgba(255,255,255,0.1);filter:blur(48px);pointer-events:none;"></div>
-      <div aria-hidden style="position:absolute;bottom:-80px;left:-80px;width:256px;height:256px;border-radius:50%;background:rgba(97,38,5,0.3);filter:blur(48px);pointer-events:none;"></div>
-
-      <div style="position:relative;z-index:1;max-width:768px;margin:0 auto;text-align:center;">
-        <div style="margin-bottom:24px;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,220,200,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
-        </div>
-        <h2 style="font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.2;letter-spacing:-0.02em;color:#fff;margin-bottom:32px;">
-          일상을 여행으로 만드는<br />가장 가벼운 방법
+    <!-- ── VISION ── Figma: canvas bg, white stat cards, absolute positioned ── -->
+    <section style="padding:120px 20px;">
+      <div style="max-width:620px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:40px;text-align:center;">
+        <h2 style="display:flex;flex-direction:column;align-items:center;font-size:32px;font-weight:700;line-height:1.5;color:#222;margin:0;">
+          <span>일상을 여행으로 만드는</span>
+          <span>가장 가벼운 방법</span>
         </h2>
-        <p style="font-size:clamp(15px,2.5vw,18px);line-height:1.9;color:var(--orange-100);max-width:480px;margin:0 auto;">
-          특별한 기념일이나 완벽한 준비가 없어도 좋습니다. 지친 일상 속에서 좋은 공간을 가볍게 줍고 떠나는 것만으로도, 당신의 내일은 훨씬 더 산뜻해질 것입니다.
+        <p style="font-size:16px;line-height:1.5;color:#444;margin:0;">
+          특별한 기념일이나 완벽한 준비가 없어도 좋습니다.<br />
+          지친 일상 속에서 좋은 공간을 가볍게 줍고 떠나는 것만으로도,<br />
+          여러분의 내일은 훨씬 더 산뜻해질 거에요.
         </p>
 
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:480px;margin:64px auto 0;">
-          <div style="border-radius:16px;padding:20px 16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);">
-            <p style="font-size:24px;font-weight:800;color:#fff;">0원</p>
-            <p style="font-size:12px;color:var(--orange-100);margin-top:4px;">숨겨진 수수료</p>
+        <!-- Figma: absolute-positioned white cards in 480x144 container -->
+        <div style="position:relative;height:144px;width:480px;">
+          <div style="position:absolute;left:0;top:0;width:149px;height:144px;border-radius:16px;background:#fff;box-shadow:0 1px 3px rgba(34,34,34,0.06);">
+            <p style="position:absolute;top:44px;left:16px;width:117px;text-align:center;font-size:24px;font-weight:800;color:#ff5a00;margin:0;">0원</p>
+            <p style="position:absolute;top:97px;left:16px;width:117px;text-align:center;font-size:14px;font-weight:500;color:#888;margin:0;">숨겨진 수수료</p>
           </div>
-          <div style="border-radius:16px;padding:20px 16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);">
-            <p style="font-size:24px;font-weight:800;color:#fff;">엄선</p>
-            <p style="font-size:12px;color:var(--orange-100);margin-top:4px;">퀄리티 숙소</p>
+          <div style="position:absolute;left:165px;top:0;width:149px;height:144px;border-radius:16px;background:#fff;box-shadow:0 1px 3px rgba(34,34,34,0.06);">
+            <p style="position:absolute;top:44px;left:16px;width:117px;text-align:center;font-size:24px;font-weight:800;color:#ff5a00;margin:0;">엄선</p>
+            <p style="position:absolute;top:97px;left:16px;width:117px;text-align:center;font-size:14px;font-weight:500;color:#888;margin:0;">퀄리티 숙소</p>
           </div>
-          <div style="border-radius:16px;padding:20px 16px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);">
-            <p style="font-size:24px;font-weight:800;color:#fff;">즉시</p>
-            <p style="font-size:12px;color:var(--orange-100);margin-top:4px;">예약 가능</p>
+          <div style="position:absolute;left:331px;top:0;width:149px;height:144px;border-radius:16px;background:#fff;box-shadow:0 1px 3px rgba(34,34,34,0.06);">
+            <p style="position:absolute;top:44px;left:16px;width:117px;text-align:center;font-size:24px;font-weight:800;color:#ff5a00;margin:0;">즉시</p>
+            <p style="position:absolute;top:97px;left:16px;width:117px;text-align:center;font-size:14px;font-weight:500;color:#888;margin:0;">예약 가능</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── BOTTOM CTA ───────────────────────────────────────────────────────── -->
-    <section id="notify" style="background:#F5F5F5;padding:96px 20px;">
-      <div style="max-width:672px;margin:0 auto;">
-        <div style="overflow:hidden;border-radius:20px;background:#fff;box-shadow:0 20px 40px rgba(34,34,34,0.1);border:1px solid var(--border-default);">
-          <div style="height:6px;background:linear-gradient(to right,#FF5A00,#C24B0A);"></div>
-
-          <div style="padding:48px 40px;">
-            <div style="text-align:center;margin-bottom:8px;">
-              <span class="label">EARLY ACCESS</span>
+    <!-- ── BOTTOM CTA ── Figma: #f5f5f5 bg, white card, floating labels ── -->
+    <section id="notify" style="background:#f5f5f5;padding:120px 20px;">
+      <div style="max-width:620px;margin:0 auto;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:60px;overflow:hidden;border-radius:20px;background:#fff;padding:40px;box-shadow:0 20px 40px rgba(34,34,34,0.08);">
+          <!-- Header block -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:24px;width:100%;">
+            <span style="display:inline-block;border-radius:9999px;background:#ffdecc;padding:8px 40px;font-size:12px;font-weight:600;color:#ff5a00;">EARLY ACCESS</span>
+            <div style="display:flex;flex-direction:column;align-items:center;font-size:32px;line-height:1.5;text-align:center;">
+              <p style="font-weight:700;color:#222;margin:0;">가장 먼저 좋은 숙소를 주울 준비</p>
+              <p style="font-weight:800;color:#ff5a00;margin:0;">되셨나요?</p>
             </div>
-            <h2 style="margin-top:20px;text-align:center;font-size:clamp(22px,4vw,36px);font-weight:800;line-height:1.25;letter-spacing:-0.02em;color:var(--fg-strong);">
-              가장 먼저 좋은 숙소를 주울 준비,<br />
-              <span style="color:var(--orange-600);">되셨나요?</span>
-            </h2>
-            <p style="margin:20px auto 0;max-width:420px;text-align:center;font-size:15px;line-height:1.8;color:var(--fg-muted);">
-              지금 사전 알림을 신청하시면, 정식 오픈 소식과 함께 첫 여행을 더욱 가볍게 만들어줄
-              <span style="font-weight:600;color:var(--fg-default);">특별한 쿠폰</span>을 챙겨드립니다.
+            <p style="text-align:center;font-size:16px;line-height:1.5;color:#666;margin:0;">
+              지금 사전 알림을 신청하시면,<br />
+              정식 오픈 소식과 함께 첫 여행을 더욱 가볍게 만들어줄 <strong>특별한 쿠폰</strong>을 챙겨드립니다.
             </p>
+          </div>
 
-            <div style="margin-top:40px;">
-              <div id="bottom-success" style="display:none;flex-direction:column;align-items:center;gap:16px;border-radius:16px;background:var(--orange-50);padding:40px 32px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF5A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <div style="text-align:center;">
-                  <p id="bottom-success-name" style="font-size:18px;font-weight:700;color:var(--fg-strong);"></p>
-                  <p style="margin-top:8px;font-size:14px;color:var(--fg-muted);">정식 오픈 시 특별 쿠폰과 함께 연락드릴게요.</p>
+          <!-- Form block -->
+          <div style="width:100%;">
+            <div id="bottom-success" style="display:none;flex-direction:column;align-items:center;gap:16px;border-radius:16px;background:#ffeee5;padding:40px 32px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF5A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div style="text-align:center;">
+                <p id="bottom-success-name" style="font-size:18px;font-weight:700;color:#222;"></p>
+                <p style="margin-top:8px;font-size:14px;color:#666;">정식 오픈 시 특별 쿠폰과 함께 연락드릴게요.</p>
+              </div>
+            </div>
+
+            <form id="bottom-form" onsubmit="submitBottomForm(event)" style="display:flex;flex-direction:column;gap:16px;">
+              <!-- Inputs with floating labels (always visible per Figma) -->
+              <div style="display:flex;gap:12px;">
+                <div style="position:relative;flex:1;">
+                  <label style="position:absolute;left:20px;top:-7px;z-index:1;background:#fff;padding:0 2px;font-size:12px;font-weight:600;color:#666;">성함</label>
+                  <input id="bottom-name" type="text" required
+                    style="height:47px;width:100%;border-radius:12px;border:1px solid #eee;padding:0 20px;font-size:14px;color:#333;background:#fff;outline:none;font-family:inherit;" />
+                </div>
+                <div style="position:relative;flex:1;">
+                  <label style="position:absolute;left:20px;top:-7.5px;z-index:1;background:#fff;padding:0 2px;font-size:12px;font-weight:600;color:#666;">이메일</label>
+                  <input id="bottom-email" type="email" required
+                    style="height:47px;width:100%;border-radius:12px;border:1px solid #eee;padding:0 20px;font-size:14px;color:#333;background:#fff;outline:none;font-family:inherit;" />
                 </div>
               </div>
-
-              <form id="bottom-form" onsubmit="submitBottomForm(event)" style="display:flex;flex-direction:column;gap:16px;">
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-                  <div>
-                    <label for="bottom-name" style="display:block;font-size:12px;font-weight:600;color:var(--fg-muted);margin-bottom:6px;">성함</label>
-                    <input id="bottom-name" type="text" required placeholder="홍길동" class="input" />
-                  </div>
-                  <div>
-                    <label for="bottom-email" style="display:block;font-size:12px;font-weight:600;color:var(--fg-muted);margin-bottom:6px;">이메일</label>
-                    <input id="bottom-email" type="email" required placeholder="hello@example.com" class="input" />
-                  </div>
-                </div>
-                <button type="submit" id="bottom-btn" class="btn-primary" style="width:100%;margin-top:8px;">
-                  사전 알림 및 쿠폰 신청하기
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </button>
-                <p style="text-align:center;font-size:12px;color:var(--fg-placeholder);">개인정보는 오픈 안내 목적으로만 활용되며, 이후 즉시 파기됩니다.</p>
-              </form>
-            </div>
+              <button type="submit" id="bottom-btn"
+                style="height:49px;width:100%;border-radius:16px;background:#ff5a00;color:#fff;font-size:16px;font-weight:600;border:none;cursor:pointer;">
+                사전 알림 및 쿠폰 신청하기
+              </button>
+              <p style="text-align:center;font-size:12px;font-weight:500;color:#aaa;margin:0;">개인정보는 오픈 안내 목적으로만 활용되며, 이후 즉시 파기됩니다.</p>
+            </form>
           </div>
         </div>
       </div>
@@ -362,18 +345,10 @@
 
   </main>
 
-  <!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
-  <footer style="border-top:1px solid var(--border-default);background:#fff;padding:40px 20px;">
-    <div style="max-width:1024px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
-      <span style="font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--fg-strong);">
-        줍<span style="color:var(--orange-600);">.</span>
-      </span>
-      <p style="font-size:12px;color:var(--fg-placeholder);">© 2025 Jjup. 비어있는 좋은 숙소, 가볍게 줍다.</p>
-      <div style="display:flex;gap:20px;font-size:12px;color:var(--fg-placeholder);">
-        <a href="#" style="color:inherit;text-decoration:none;">이용약관</a>
-        <a href="#" style="color:inherit;text-decoration:none;">개인정보처리방침</a>
-      </div>
-    </div>
+  <!-- ── FOOTER ── Figma: #f0f0ee bg, #bbb text, 11px ── -->
+  <footer style="background:#f0f0ee;padding:32px 20px;text-align:center;font-size:11px;letter-spacing:-0.11px;color:#bbb;">
+    <p style="margin:0;">© 2026 ZOOP. All rights reserved.</p>
+    <p style="margin:0;">본 페이지는 서비스 출시 전 수요 검증을 위한 사전 대기자 모집 페이지입니다.</p>
   </footer>
 
   <script>
